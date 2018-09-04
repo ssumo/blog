@@ -1,0 +1,914 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Share," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="微信H5遇到的兼容问题总结,主要对于css3对于低版本手机和flex布局对于低版本手机兼容问题的总结。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信H5遇到的兼容问题总结">
+<meta property="og:url" content="https://ssumo.github.io/share/微信H5遇到的兼容问题总结/2018/09/04/index.html">
+<meta property="og:site_name" content="Sumo | Blog">
+<meta property="og:description" content="微信H5遇到的兼容问题总结,主要对于css3对于低版本手机和flex布局对于低版本手机兼容问题的总结。">
+<meta property="og:updated_time" content="2018-09-04T14:24:43.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信H5遇到的兼容问题总结">
+<meta name="twitter:description" content="微信H5遇到的兼容问题总结,主要对于css3对于低版本手机和flex布局对于低版本手机兼容问题的总结。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ssumo.github.io/share/微信H5遇到的兼容问题总结/2018/09/04/"/>
+
+
+
+
+
+  <title> 微信H5遇到的兼容问题总结 | Sumo | Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Sumo | Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://ssumo.github.io/share/微信H5遇到的兼容问题总结/2018/09/04/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Sumo">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Sumo | Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Sumo | Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                微信H5遇到的兼容问题总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-04T22:24:43+08:00">
+                2018-09-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Share/" itemprop="url" rel="index">
+                    <span itemprop="name">Share</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/share/微信H5遇到的兼容问题总结/2018/09/04/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="/share/微信H5遇到的兼容问题总结/2018/09/04/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>微信H5遇到的兼容问题总结,主要对于css3对于低版本手机和flex布局对于低版本手机兼容问题的总结。</p>
+<a id="more"></a>
+<h3 id="1-CSS3对于低版本手机如-安卓4-3-IOS8以下-不兼容问题"><a href="#1-CSS3对于低版本手机如-安卓4-3-IOS8以下-不兼容问题" class="headerlink" title="1. CSS3对于低版本手机如(安卓4.3,IOS8以下)不兼容问题"></a>1. CSS3对于低版本手机如(安卓4.3,IOS8以下)不兼容问题</h3><ul>
+<li><p>问题描述:以上手机处理动画的时候,动画不加载,若界面设置的在动画加载后出现,即给页面设置overflow:hidden样式使得页面加载为空白界面</p>
+</li>
+<li><p>解决办法:以上手机版本CSS3动画帧的处理上应格外小心</p>
+</li>
+</ul>
+<ol>
+<li><p>@-webkit-keyframes每一帧动画都需要添加-webkit-前缀</p>
+</li>
+<li><p>IOS8处理动画的时候因负载启动不了动画,需延迟动画,让浏览器有足够的时间加载动画</p>
+</li>
+</ol>
+<ul>
+<li>以下是Stack Overflow遇到类似问题的解决办法</li>
+</ul>
+<blockquote>
+<p>Well, I appear to have stumbled upon a workaround at least. Apparently, if mobile Safari hiccups on anything during load, or can’t keep up, or something, it won’t start the animation. My solution was simply to delay the animation by 0.1s. This gives the browser enough time to get everything loaded and then start the animation, every time.</p>
+<p>-webkit-animation: slideshow-right 10s 0.1s linear infinite;</p>
+</blockquote>
+<h3 id="2-flex对于低版本手机如-安卓4-3-IOS8以下-不兼容问题"><a href="#2-flex对于低版本手机如-安卓4-3-IOS8以下-不兼容问题" class="headerlink" title="2. flex对于低版本手机如(安卓4.3,IOS8以下)不兼容问题"></a>2. flex对于低版本手机如(安卓4.3,IOS8以下)不兼容问题</h3><ul>
+<li><p>问题描述:以上版本手机中flex布局没有起作用,整个布局还是属于默认的</p>
+</li>
+<li><p>解决办法:参考<a href="https://segmentfault.com/a/1190000003978624#articleHeader9(flex布局新旧混合写法" target="_blank" rel="external">https://segmentfault.com/a/1190000003978624#articleHeader9(flex布局新旧混合写法</a>)</p>
+</li>
+<li><p>这里假设flex容器为 <code>.box</code> ，子元素为 <code>.item</code> </p>
+</li>
+</ul>
+<h4 id="兼容写法-此问题的处理办法"><a href="#兼容写法-此问题的处理办法" class="headerlink" title="兼容写法(此问题的处理办法)"></a>兼容写法(此问题的处理办法)</h4><ul>
+<li>首先是定义容器的 display 属性</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    display: -webkit-box; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */</div><div class="line">    display: -moz-box; /* 老版本语法: Firefox (buggy) */</div><div class="line">    display: -ms-flexbox; /* 混合版本语法: IE 10 */</div><div class="line">    display: -webkit-flex; /* 新版本语法: Chrome 21+ */</div><div class="line">    display: flex; /* 新版本语法: Opera 12.1, Firefox 22+ */</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>由于旧版语法并没有列入W3C标准，所以这里不用写 display:box ，下面的语法也是一样的</p>
+<p>这里还要注意的是，如果子元素是行内元素，在很多情况下都要使用 display:block 或 display:inline-block 把行内子元素变成块元素（例如使用 box-flex 属性），这也是旧版语法和新版语法的区别之一</p>
+<ul>
+<li>子元素主轴对齐方式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    -webkit-box-pack: center;</div><div class="line">    -moz-justify-content: center;</div><div class="line">    -webkit-justify-content: center;</div><div class="line">    justify-content: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里旧版语法有4个参数，而新版语法有5个参数，兼容写法新版语法的 space-around 是不可用的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    box-pack: start | end | center | justify;</div><div class="line">    /*主轴对齐：左对齐（默认） | 右对齐 | 居中对齐 | 左右对齐*/</div><div class="line"></div><div class="line">    justify-content: flex-start | flex-end | center | space-between | space-around;</div><div class="line">    /*主轴对齐方式：左对齐（默认） | 右对齐 | 居中对齐 | 两端对齐 | 平均分布*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>子元素交叉轴对齐方式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    -webkit-box-align: center;</div><div class="line">    -moz-align-items: center;</div><div class="line">    -webkit-align-items: center;</div><div class="line">    align-items: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里的参数除了写法不同，其实是功能是一样的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    box-align: start | end | center | baseline | stretch;</div><div class="line">    /*交叉轴对齐：顶部对齐（默认） | 底部对齐 | 居中对齐 | 文本基线对齐 | 上下对齐并铺满*/</div><div class="line"></div><div class="line">    align-items: flex-start | flex-end | center | baseline | stretch;</div><div class="line">    /*交叉轴对齐方式：顶部对齐（默认） | 底部对齐 | 居中对齐 | 上下对齐并铺满 | 文本基线对齐*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>子元素的显示方向</li>
+</ul>
+<p>子元素的显示方向可通过 box-direction + box-orient + flex-direction 实现，下面请看实例</p>
+<ul>
+<li>左到右</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    -webkit-box-direction: normal;</div><div class="line">    -webkit-box-orient: horizontal;</div><div class="line">    -moz-flex-direction: row;</div><div class="line">    -webkit-flex-direction: row;</div><div class="line">    flex-direction: row;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>右到左</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    -webkit-box-pack: end;</div><div class="line">    -webkit-box-direction: reverse;</div><div class="line">    -webkit-box-orient: horizontal;</div><div class="line">    -moz-flex-direction: row-reverse;</div><div class="line">    -webkit-flex-direction: row-reverse;</div><div class="line">    flex-direction: row-reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里补充说明一点： box 写法的 box-direction 只是改变了子元素的排序，并没有改变对齐方式，需要新增一个 box-pack 来改变对齐方式</p>
+<ul>
+<li>上到下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    -webkit-box-direction: normal;</div><div class="line">    -webkit-box-orient: vertical;</div><div class="line">    -moz-flex-direction: column;</div><div class="line">    -webkit-flex-direction: column;</div><div class="line">    flex-direction: column;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>下到上</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    -webkit-box-pack: end;</div><div class="line">    -webkit-box-direction: reverse;</div><div class="line">    -webkit-box-orient: vertical;</div><div class="line">    -moz-flex-direction: column-reverse;</div><div class="line">    -webkit-flex-direction: column-reverse;</div><div class="line">    flex-direction: column-reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>是否允许子元素伸缩</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.item&#123;</div><div class="line">    -webkit-box-flex: 1.0;</div><div class="line">    -moz-flex-grow: 1;</div><div class="line">    -webkit-flex-grow: 1;</div><div class="line">    flex-grow: 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.item&#123;</div><div class="line">    -webkit-box-flex: 1.0;</div><div class="line">    -moz-flex-shrink: 1;</div><div class="line">    -webkit-flex-shrink: 1;</div><div class="line">    flex-shrink: 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面是允许放大，box语法中 <code>box-flex</code> 如果不是0就表示该子元素允许伸缩，而flex是分开的，上面 <code>flex-grow</code> 是允许放大（默认不允许），下面的 flex-shrink 是允许缩小（默认允许）。box-flex 默认值为0，也就是说，在默认的情况下，在两个浏览器中的表现是不一样的</p>
+<p>这里还有一点，就是新旧语法的算法是不一样的，假设 box-flex 的值不等于0，旧语法中，如果有多余的空间，box-flex 的值越大，说明空白部分的占比越多，反之亦然</p>
+<p>而新版的语法中，放大的比例是直接按 flex-grow 的值来分配的，flex-grow 的缩放会覆盖 flex-shrink:0，看例子</p>
+<ul>
+<li>参数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.item&#123;</div><div class="line">    box-flex: &lt;value&gt;;</div><div class="line">    /*伸缩：&lt;一个浮点数，默认为0.0，即表示不可伸缩，大于0的值可伸缩，柔性相对&gt;*/</div><div class="line"></div><div class="line">    flex-grow: &lt;number&gt;; /* default 0 */</div><div class="line">    /*放大：默认0（即如果有剩余空间也不放大，值为1则放大，2是1的双倍大小，以此类推）*/</div><div class="line"></div><div class="line">    flex-shrink: &lt;number&gt;; /* default 1 */</div><div class="line">    /*缩小：默认1（如果空间不足则会缩小，值为0不缩小）*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>子元素的显示次序</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.item&#123;</div><div class="line">    -webkit-box-ordinal-group: 1;</div><div class="line">    -moz-order: 1;</div><div class="line">    -webkit-order: 1;</div><div class="line">    order: 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="旧语法篇"><a href="#旧语法篇" class="headerlink" title="旧语法篇"></a>旧语法篇</h4><ul>
+<li>定义容器的display属性</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    display: -moz-box; /*Firefox*/</div><div class="line">    display: -webkit-box; /*Safari,Opera,Chrome*/</div><div class="line">    display: box;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>容器属性</li>
+</ul>
+<p><strong>1.box-pack 属性</strong></p>
+<p>box-pack定义子元素主轴对齐方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    -moz-box-pack: center; /*Firefox*/</div><div class="line">    -webkit-box-pack: center; /*Safari,Opera,Chrome*/</div><div class="line">    box-pack: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>box-pack属性总共有4个值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    box-pack: start | end | center | justify;</div><div class="line">    /*主轴对齐：左对齐（默认） | 右对齐 | 居中对齐 | 左右对齐*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>2.box-align 属性</strong></p>
+<p>box-align定义子元素交叉轴对齐方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    -moz-box-align: center; /*Firefox*/</div><div class="line">    -webkit-box-align: center; /*Safari,Opera,Chrome*/</div><div class="line">    box-align: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>box-align属性总共有5个值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    box-align: start | end | center | baseline | stretch;</div><div class="line">    /*交叉轴对齐：顶部对齐（默认） | 底部对齐 | 居中对齐 | 文本基线对齐 | 上下对齐并铺满*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>3.box-direction 属性</strong></p>
+<p>box-direction定义子元素的显示方向</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    -moz-box-direction: reverse; /*Firefox*/</div><div class="line">    -webkit-box-direction: reverse; /*Safari,Opera,Chrome*/</div><div class="line">    box-direction: reverse;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>box-direction属性总共有3个值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    box-direction: normal | reverse | inherit;</div><div class="line">    /*显示方向：默认方向 | 反方向 | 继承子元素的 box-direction*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>4.box-orient 属性</strong></p>
+<p>box-orient定义子元素是否应水平或垂直排列</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    -moz-box-orient: horizontal; /*Firefox*/</div><div class="line">    -webkit-box-orient: horizontal; /*Safari,Opera,Chrome*/</div><div class="line">    box-orient: horizontal;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>box-orient属性总共有5个值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    box-orient: horizontal | vertical | inline-axis | block-axis | inherit;</div><div class="line">    /*排列方向：水平 | 垂直 | 行内方式排列（默认） | 块方式排列 | 继承父级的box-orient*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>5.box-lines 属性</strong></p>
+<p>box-lines定义当子元素超出了容器是否允许子元素换行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    -moz-box-lines: multiple; /*Firefox*/</div><div class="line">    -webkit-box-lines: multiple; /*Safari,Opera,Chrome*/</div><div class="line">    box-lines: multiple;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>box-lines属性总共有2个值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    box-lines: single | multiple;</div><div class="line">    /*允许换行：不允许（默认） | 允许*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>子元素属性</li>
+</ul>
+<p><strong>1.box-flex 属性</strong></p>
+<p>box-flex定义是否允许当前子元素伸缩</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.item&#123;</div><div class="line">    -moz-box-flex: 1.0; /*Firefox*/</div><div class="line">    -webkit-box-flex: 1.0; /*Safari,Opera,Chrome*/</div><div class="line">    box-flex: 1.0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>box-flex属性使用一个浮点值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.item&#123;</div><div class="line">    box-flex: &lt;value&gt;;</div><div class="line">    /*伸缩：&lt;一个浮点数，默认为0.0，即表示不可伸缩，大于0的值可伸缩，柔性相对&gt;*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>2.box-ordinal-group 属性</strong></p>
+<p>box-ordinal-group定义子元素的显示次序，数值越小越排前</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.item&#123;</div><div class="line">    -moz-box-ordinal-group: 1; /*Firefox*/</div><div class="line">    -webkit-box-ordinal-group: 1; /*Safari,Opera,Chrome*/</div><div class="line">    box-ordinal-group: 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>box-direction属性使用一个整数值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.item&#123;</div><div class="line">    box-ordinal-group: &lt;integer&gt;;</div><div class="line">    /*显示次序：&lt;一个整数，默认为1，数值越小越排前&gt;*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="新版语法"><a href="#新版语法" class="headerlink" title="新版语法"></a>新版语法</h4><ul>
+<li>定义容器的display属性</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    display: -webkit-flex; /*webkit*/</div><div class="line">    display: flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/*行内flex*/</div><div class="line">.box&#123;</div><div class="line">    display: -webkit-inline-flex; /*webkit*/</div><div class="line">    display:inline-flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>容器样式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">    flex-direction: row | row-reverse | column | column-reverse;</div><div class="line">    /*主轴方向：左到右（默认） | 右到左 | 上到下 | 下到上*/</div><div class="line"></div><div class="line">    flex-wrap: nowrap | wrap | wrap-reverse;</div><div class="line">    /*换行：不换行（默认） | 换行 | 换行并第一行在下方*/</div><div class="line"></div><div class="line">    flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;</div><div class="line">    /*主轴方向和换行简写*/</div><div class="line"></div><div class="line">    justify-content: flex-start | flex-end | center | space-between | space-around;</div><div class="line">    /*主轴对齐方式：左对齐（默认） | 右对齐 | 居中对齐 | 两端对齐 | 平均分布*/</div><div class="line"></div><div class="line">    align-items: flex-start | flex-end | center | baseline | stretch;</div><div class="line">    /*交叉轴对齐方式：顶部对齐（默认） | 底部对齐 | 居中对齐 | 上下对齐并铺满 | 文本基线对齐*/</div><div class="line"></div><div class="line">    align-content: flex-start | flex-end | center | space-between | space-around | stretch;</div><div class="line">    /*多主轴对齐：顶部对齐（默认） | 底部对齐 | 居中对齐 | 上下对齐并铺满 | 上下平均分布*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>子元素属性</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">.item&#123;</div><div class="line">    order: &lt;integer&gt;;</div><div class="line">    /*排序：数值越小，越排前，默认为0*/</div><div class="line"></div><div class="line">    flex-grow: &lt;number&gt;; /* default 0 */</div><div class="line">    /*放大：默认0（即如果有剩余空间也不放大，值为1则放大，2是1的双倍大小，以此类推）*/</div><div class="line"></div><div class="line">    flex-shrink: &lt;number&gt;; /* default 1 */</div><div class="line">    /*缩小：默认1（如果空间不足则会缩小，值为0不缩小）*/</div><div class="line"></div><div class="line">    flex-basis: &lt;length&gt; | auto; /* default auto */</div><div class="line">    /*固定大小：默认为0，可以设置px值，也可以设置百分比大小*/</div><div class="line"></div><div class="line">    flex: none | [ &lt;&apos;flex-grow&apos;&gt; &lt;&apos;flex-shrink&apos;&gt;? || &lt;&apos;flex-basis&apos;&gt; ]</div><div class="line">    /*flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto，*/</div><div class="line"></div><div class="line">    align-self: auto | flex-start | flex-end | center | baseline | stretch;</div><div class="line">    /*单独对齐方式：自动（默认） | 顶部对齐 | 底部对齐 | 居中对齐 | 上下对齐并铺满 | 文本基线对齐*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>只是测试这个小功能,有木有奖赏无所谓哟,真心感谢你的阅读,有什么想法可以评论告知我哟~</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.png" alt="Sumo WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="Sumo Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Share/" rel="tag"># Share</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/share/前端开发值得推荐的各种资源/2018/09/04/" rel="next" title="前端开发值得推荐的各种资源">
+                <i class="fa fa-chevron-left"></i> 前端开发值得推荐的各种资源
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/projects/react-baseui/2018/09/04/" rel="prev" title="react-baseui">
+                react-baseui <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="/share/微信H5遇到的兼容问题总结/2018/09/04/"
+     data-title="微信H5遇到的兼容问题总结"
+     data-content=""
+     data-url="https://ssumo.github.io//share/微信H5遇到的兼容问题总结/2018/09/04/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="/share/微信H5遇到的兼容问题总结/2018/09/04/"
+           data-title="微信H5遇到的兼容问题总结" data-url="https://ssumo.github.io//share/微信H5遇到的兼容问题总结/2018/09/04/">
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+        <script type="text/javascript">
+        var duoshuoQuery = {short_name:"sumo"};
+          (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0] 
+            || document.getElementsByTagName('body')[0]).appendChild(ds);
+          })();
+          </script>
+        <!-- 多说公共JS代码 end -->
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Sumo" />
+          <p class="site-author-name" itemprop="name">Sumo</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/sumodream" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/sumodream/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-heart"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:sumo_dream@sina.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-envelope-o"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-CSS3对于低版本手机如-安卓4-3-IOS8以下-不兼容问题"><span class="nav-number">1.</span> <span class="nav-text">1. CSS3对于低版本手机如(安卓4.3,IOS8以下)不兼容问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-flex对于低版本手机如-安卓4-3-IOS8以下-不兼容问题"><span class="nav-number">2.</span> <span class="nav-text">2. flex对于低版本手机如(安卓4.3,IOS8以下)不兼容问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#兼容写法-此问题的处理办法"><span class="nav-number">2.1.</span> <span class="nav-text">兼容写法(此问题的处理办法)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#旧语法篇"><span class="nav-number">2.2.</span> <span class="nav-text">旧语法篇</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新版语法"><span class="nav-number">2.3.</span> <span class="nav-text">新版语法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sumo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sumo"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
