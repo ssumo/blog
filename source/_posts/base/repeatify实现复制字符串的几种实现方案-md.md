@@ -1,5 +1,5 @@
 ---
-title: 学习Git的总结
+title: repeatify实现复制字符串的几种实现方案
 date: 2018-09-04 15:40:11
 tags: JS
 categories: JS
