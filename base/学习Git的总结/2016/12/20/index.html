@@ -1,0 +1,878 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Git," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="博客迁移,这还是刚入行2015年时的总结,基础但还是感觉还是有些价值的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习Git的总结">
+<meta property="og:url" content="https://ssumo.github.io/base/学习Git的总结/2016/12/20/index.html">
+<meta property="og:site_name" content="Sumo | Blog">
+<meta property="og:description" content="博客迁移,这还是刚入行2015年时的总结,基础但还是感觉还是有些价值的。">
+<meta property="og:updated_time" content="2017-11-13T03:09:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="学习Git的总结">
+<meta name="twitter:description" content="博客迁移,这还是刚入行2015年时的总结,基础但还是感觉还是有些价值的。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ssumo.github.io/base/学习Git的总结/2016/12/20/"/>
+
+
+
+
+
+  <title> 学习Git的总结 | Sumo | Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Sumo | Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://ssumo.github.io/base/学习Git的总结/2016/12/20/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Sumo">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Sumo | Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Sumo | Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                学习Git的总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-20T22:55:46+08:00">
+                2016-12-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/base/学习Git的总结/2016/12/20/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="/base/学习Git的总结/2016/12/20/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>博客迁移,这还是刚入行2015年时的总结,基础但还是感觉还是有些价值的。</p>
+<a id="more"></a>
+<p>第一次学习<strong>Git</strong>是完全按照<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰</a>老师的教程学习的,学的过程中基本上没有遇到什么问题,但是自己实际操作就问题不断了.</p>
+<p>首先,还是按照惯例,来膜拜一下<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰</a>老师精简的教程知识吧,中间穿插一些自己的感悟.</p>
+<!-- more -->
+<p><strong>安装</strong><br>git:msysgit是Windows版的Git，从<a href="http://msysgit.github.io/下载，然后按默认选项安装即可。" target="_blank" rel="external">http://msysgit.github.io/下载，然后按默认选项安装即可。</a></p>
+<p>安装完成后，在开始菜单里找到“Git”-&gt;“Git Bash”，蹦出一个类似命令行窗口的东西，就说明Git安装成功！</p>
+<p>安装完成后，还需要最后一步设置，在命令行输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;Your Name&quot;</div><div class="line">$ git config --global user.email &quot;email@example.com&quot;</div></pre></td></tr></table></figure>
+<p><strong>创建repository</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ mkdir learngit</div><div class="line">$ cd learngit</div><div class="line">$ pwd</div></pre></td></tr></table></figure></p>
+<p><strong>初始化项目</strong><code>$ git init</code></p>
+<p>添加文件(此处可将整个文件添加 使用<code>git add filename</code> 后面也可以空格之后再加其他的文件…<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git add readme.txt</div><div class="line">$ git commit -m &quot;wrote a readme file&quot;</div></pre></td></tr></table></figure></p>
+<p>add所有文件<code>$ git add .</code></p>
+<p>add并rm所有<code>$ git add -A</code></p>
+<p>提交modify和rm（新加的文件不会自动提交）<code>$ git commit -a</code></p>
+<blockquote>
+<p><strong>注意</strong>:此处的<code>git commit -m &quot;xxx&quot;</code> 里的<code>&quot;xxx&quot;</code> 最好写上,属于给你提交的文件一个tag,利人利己,何乐不为呢.</p>
+<p>初始化一个Git仓库，使用<strong>git init</strong>命令。</p>
+<p>添加文件到Git仓库，分两步：</p>
+<p>第一步，使用命令<strong>git add <file></file></strong>，注意，可反复多次使用，添加多个文件；</p>
+<p>第二步，使用命令<strong>git commit</strong>，完成。</p>
+</blockquote>
+<p><strong>查看状态与版本倒退</strong></p>
+<p>查看你刚才操作的状态<code>$ git status</code></p>
+<p>查看修改内容<code>$ git diff readme.txt</code> </p>
+<p>查看log，后面参数可选(数字)<code>$ git log (--prety=oneline)</code></p>
+<p>回退上个版本（HEAD指向master的指针，^个数表示上几个版本）<code>$ git reset --hard HEAD^</code></p>
+<p>回退n个版本<code>$ git reset --hard HEAD~100</code><br><code>回退到commit为3628164版本</code>$ git reset –hard 3628164`</p>
+<p>查看每一次命令<code>$ git reflog</code>　</p>
+<p>把readme.txt文件在工作区的修改全部撤销<code>$ git checkout --readme.txt</code>
+　　　　　　　　</p>
+<blockquote>
+<p>这里有两种情况：<br>一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；<br>一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。</p>
+</blockquote>
+<p>命令中的“<code>--</code>”很重要，没有“<code>--</code>”，就变成了“创建一个新分支”的命令<code>$ git checkout -- file</code></p>
+<p>可以把暂存区的修改撤销掉（unstage），重新放回工作区<code>$ git reset HEAD readme.txt</code></p>
+<p>从版本库中删除文件<code>$ git rm readme.txt</code></p>
+<p>如果在文件管理器中误删了文件，因为版本库里还有呢，可以用这句恢复<code>$ git checkout -- readme.txt</code></p>
+<p><strong>远程库</strong></p>
+<p>关联一个远程库，使用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote add origin https://github.com/yourgithubname/gitdemo.git</div></pre></td></tr></table></figure>
+<p>也可以是这种(前提在ssh建立之后,账户密码填写之后)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote add origin git@github.com:yourgithubname/gitdemo.git</div></pre></td></tr></table></figure>
+<p>关联后，使用命令,第一次推送master分支的所有内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push -u origin master</div></pre></td></tr></table></figure>
+<p>每次本地提交后，只要有必要，就可以使用命令推送最新修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin master</div></pre></td></tr></table></figure>
+<p>克隆repository。创建一个空的repository，然后用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git clone https://github.com/cloneurl/clonetest</div></pre></td></tr></table></figure>
+<p><strong>分支与冲突</strong></p>
+<p>查看分支：<code>$ git branch</code></p>
+<p>创建分支：<code>$ git branch name</code></p>
+<p>切换分支：<code>$ git checkout name</code></p>
+<p>创建+切换分支：<code>$ git checkout -b name</code></p>
+<p>合并某分支到当前分支：<code>$ git merge name</code></p>
+<p> -no-ff参数，表示禁用“Fast forward”  会在merge时生成一个新的commit，这样，从分支历史上就可以看出分支信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git merge --no-ff -m &quot;merge with no-ff&quot; dev</div></pre></td></tr></table></figure>
+<p>删除分支：<code>$ git branch -d name</code><br>强行删除分支（当在分支上修改后，不想并入其他分支，想删掉，就要强行删除）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch -D branch-name</div></pre></td></tr></table></figure>
+<p>解决分支合并产生的冲突：</p>
+<p>手动修改冲突后提交就行</p>
+<p>命令可以看到分支合并图<code>$ git log --graph</code></p>
+<p>当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支issue -101来修复它，但是，等等，当前正在dev上进行的工作还没有提交</p>
+<p>stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：git stash（有修改还没add并commit的时候调用后，现场保留，分支清空）</p>
+<p>命令查看工作现场<code>$ git stash list</code></p>
+<p>恢复有两个办法：</p>
+<p>一是用<code>$ git stash apply</code>恢复，但是恢复后，stash内容并不删除，你需要用<code>$ git stash drop</code>来删除；</p>
+<p>另一种方式是用<code>$ git stash pop</code>,恢复的同时把stash内容也删了</p>
+<p>查看远程库的信息<code>$ git remote</code></p>
+<p>显示更详细的信息<code>$ git remote -v</code></p>
+<p>抓取与推送<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git remote -v</div><div class="line">origin https://github.com/githubname/gitdemo.git (fetch)　　</div><div class="line">origin https://github.com/githubname/gitdemo.git (push)</div></pre></td></tr></table></figure></p>
+<p>显示了可以抓取和推送的origin的地址。如果没有推送权限，就看不到push的地址</p>
+<p>推送分支</p>
+<p>推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin master</div></pre></td></tr></table></figure>
+<p>如果要推送其他分支，比如dev，就改成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push orgin dev</div></pre></td></tr></table></figure>
+<p>抓取分支</p>
+<p>小伙伴要在dev分支上开发，就必须创建远程origin的dev分支到本地，于是他用这个命令创建本地dev分支</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -b dev origin/dev</div></pre></td></tr></table></figure>
+<p>现在，就可以在dev上继续修改，然后，时不时地把dev分支push到远程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push origin dev</div></pre></td></tr></table></figure>
+<p>碰巧你也对同样的文件作了修改，并试图推送：推送失败，因为你的小伙伴的最新提交和你试图推送的提交有冲突</p>
+<p>先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git pull</div></pre></td></tr></table></figure>
+<p>失败了，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，设置dev和origin/dev的链接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch --set-upstream dev origin/dev</div></pre></td></tr></table></figure>
+<p>再pull就行了，但合并会有冲突。需要手动解决</p>
+<p><strong>标签管理</strong></p>
+<p>发布一个版本时，我们通常先在版本库中打一个标签，这样，就唯一确定了打标签时刻的版本。将来无论什么时候，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。所以，标签也是版本库的一个快照。</p>
+<p>Git的标签虽然是版本库的快照，但其实它就是指向某个commit的指针（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。</p>
+<p><strong>创建标签</strong></p>
+<p>切换到需要打标签的分支上<code>$ git checkout dev</code></p>
+<p>1、敲命令<code>$ git tag name</code>就可以打一个新标签<code>$ git tag v1.0</code></p>
+<p>2、查看所有标签<code>$ git tag</code></p>
+<p>默认标签是打在最新提交的commit上的。有时候，如果忘了打标签，比如，现在已经是周五了，但应该在周一打的标签没有打，怎么办？</p>
+<p>方法是找到历史提交的commit id，然后打上就可以了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git log --pretty=oneline --abbrev-commit</div></pre></td></tr></table></figure>
+<p>对应的commit id是“ef51d63”，敲入命令$ <code>git tag v0.9 ef51d63</code></p>
+<p>3、可以用<code>$ git show tagname</code>查看标签信息<code>$ git show v0.9</code></p>
+<p>4、可以创建带有说明的标签，用-a指定标签名，-m指定说明文字：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag -a v0.1 -m &quot;version 0.1 released&quot; 02172e4</div></pre></td></tr></table></figure>
+<p>5、可以通过-s用私钥签名一个标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git tag -s v0.2 -m &quot;signed version 0.2 released&quot; a8093be</div></pre></td></tr></table></figure>
+<p>签名采用PGP签名，因此，必须首先安装gpg（GnuPG），如果没有找到gpg，或者没有gpg密钥对，就会报错</p>
+<p>用命令<code>$ git show tagname</code>可以看到PGP签名信息</p>
+<p>用PGP签名的标签是不可伪造的，因为可以验证PGP签名。验证签名的方法比较复杂</p>
+<p><strong>操作标签</strong></p>
+<p>标签打错了，也可以删除<code>$ git tag -d v1.0</code></p>
+<p>推送某个标签到远程，使用命令<code>$ git push origin tagname：</code></p>
+<p>一次性推送全部尚未推送到远程的本地标签<code>$ git push origin --tags</code></p>
+<p>从远程删除。删除命令也是<code>$ git push origin :refs/tags/tagname</code></p>
+<p><strong>配置别名</strong></p>
+<p>如果敲<code>$ git st</code>就表示<code>$ git status</code>那就简单多了</p>
+<p>1、只需要敲一行命令，告诉Git，以后st就表示status<code>$ git config --global alias.st status</code></p>
+<p>-2、-global参数是全局参数，也就是这些命令在这台电脑的所有Git仓库下都有用。</p>
+<p>3、命令<code>$ git reset HEAD file</code>可以把暂存区的修改撤销掉（unstage），重新放回工作区。既然是一个unstage操作，就可以配置一个unstage别名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --global alias.unstage &apos;reset HEAD&apos;</div></pre></td></tr></table></figure>
+<p>敲入命令<code>$ git unstage test.py</code></p>
+<p>实际上Git执行的是<code>$ git reset HEAD test.py</code></p>
+<p>4、配置一个<code>$ git last</code>，让其显示最后一次提交信息<code>$ git config --global alias.last &#39;log -l&#39;</code></p>
+<p>用<code>$ git last</code>就能显示最近一次的提交</p>
+<p><strong>报错:</strong></p>
+<blockquote>
+<p>如果输入<code>$ git push origin master</code><br>    提示出错信息：error:failed to push som refs to …….<br>    解决办法如下：<br>    1、先输入<code>$ git pull origin master</code> //先把远程服务器github上面的文件拉下来<br>    2、再输入<code>$ git push origin master</code><br>    3、如果出现报错 fatal: Couldn’t find remote ref master或者fatal: ‘origin’ does not appear to be a git repository以及fatal: Could not read from remote repository.<br>    4、则需要重新输入<code>$ git remote add origin git@github.com:yourgithubname/gitdemo.git</code></p>
+<p>如果输入<code>$ git remote add origin git@github.com:yourgithubname/gitdemo.git</code><br>    提示出错信息：fatal: remote origin already exists.<br>    解决办法如下：<br>    1、先输入<code>$ git remote rm origin</code><br>    2、再输入<code>$ git remote add origin git@github.com:yourgithubname/gitdemo.git</code><br>    3、再输入<code>-f</code>为强制推送<code>$ git push -f origin master</code></p>
+</blockquote>
+<p>使用git在本地创建一个项目的过程<br>    <code>$ makdir ~/hello-world</code>    //创建一个项目hello-world<br>    <code>$ cd ~/hello-world</code>       //打开这个项目<br>    <code>$ git init</code>             //初始化<br>    <code>$ git add README</code>        //更新README文件<br>    <code>$ git commit -m &#39;first commit&#39;</code>     //提交更新，并注释信息“first commit”<br>    <code>$ git remote add origin git@github.com:yourgithubname/gitdemo.git</code>     //连接远程github项目<br>    <code>$ git push -u origin master</code>     //将本地项目更新到github项目上去</p>
+<p>国外网友制作的Git Cheat Sheet，建议打印出来备用：</p>
+<p><a href="http://www.git-tower.com/blog/git-cheat-sheet/" target="_blank" rel="external">Git Cheat Sheet</a></p>
+<p>Git的官方网站：<a href="http://git-scm.com" target="_blank" rel="external">http://git-scm.com</a>，英文自我感觉不错的童鞋，可以经常去官网看看.</p>
+<p>报错部分欢迎更新提醒.</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>只是测试这个小功能,有木有奖赏无所谓哟,真心感谢你的阅读,有什么想法可以评论告知我哟~</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat.png" alt="Sumo WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="Sumo Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/base/正则表达式总结/2016/12/19/" rel="next" title="正则表达式总结">
+                <i class="fa fa-chevron-left"></i> 正则表达式总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/share/前端开发值得推荐的各种资源/2017/11/13/" rel="prev" title="前端开发值得推荐的各种资源">
+                前端开发值得推荐的各种资源 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="/base/学习Git的总结/2016/12/20/"
+     data-title="学习Git的总结"
+     data-content=""
+     data-url="https://ssumo.github.io//base/学习Git的总结/2016/12/20/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="/base/学习Git的总结/2016/12/20/"
+           data-title="学习Git的总结" data-url="https://ssumo.github.io//base/学习Git的总结/2016/12/20/">
+        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+        <script type="text/javascript">
+        var duoshuoQuery = {short_name:"sumo"};
+          (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0] 
+            || document.getElementsByTagName('body')[0]).appendChild(ds);
+          })();
+          </script>
+        <!-- 多说公共JS代码 end -->
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Sumo" />
+          <p class="site-author-name" itemprop="name">Sumo</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/sumodream" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/sumodream/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-heart"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:sumo_dream@sina.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-envelope-o"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sumo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sumo"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
