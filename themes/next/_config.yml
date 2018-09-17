@@ -289,7 +289,7 @@ duoshuo_shortname: sumo
 #add_this_id:
 
 # Share
-duoshuo_share: true
+duoshuo_share: false
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
@@ -456,7 +456,7 @@ vendors:
   algolia_instant_js:
   algolia_instant_css:
 
-reward_comment: 只是测试这个小功能,有木有奖赏无所谓哟,真心感谢你的阅读,有什么想法可以评论告知我哟~
+reward_comment: 感谢你的阅读~
 wechatpay: /images/wechat.png
 alipay: /images/alipay.png
 
